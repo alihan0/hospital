@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InstallController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::controller(InstallController::class)->prefix('install')->group(function(){
+   Route::get('/', 'index')->name('install');
 });
