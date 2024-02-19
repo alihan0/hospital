@@ -21,4 +21,5 @@ Route::get('/', function () {
 
 Route::controller(InstallController::class)->prefix('install')->group(function(){
    Route::get('/', 'index')->name('install');
+   Route::get('/step-1', 'step_1');
 });
