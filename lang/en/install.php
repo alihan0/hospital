@@ -18,6 +18,8 @@ return [
     "note1" => "Please upload in <code>PNG</code> format only.",
     "note2" => "Please pay attention to the aspect ratio of the logos and make sure all logos are the same size.",
     "note3" => "You do not have to upload a logo for dark mode. If you do not upload a logo for dark mode, your logos valid for white mode will be used.",
+    "step4_title" => "Your's Colors",
+    "step4_detail" => "Please enter your company's color palette. The colors you specify here constitute the basic colors of the pages that our site visitors will view. When choosing colors, please do not choose black and white colors, black and white areas are used unchanged in all our themes. Specify only the primary colors here. In order for your color palette to be valid, you must have activated the Front Site in the site settings. If you do not activate the Front Site, you will be directed directly to the administration panel.",
 
     "form" => [
         "site_name" => "Company Name",
@@ -40,6 +42,12 @@ return [
         "logo_header_dark_desc" => "This logo is used in the menu of the site in <code>dark mode</code>.",
         "logo_footer_dark_desc" => "This logo is used in the footer of the site in <code>dark mode</code>.",
         "logo_favicon_desc" => "This logo is the browser's tab icon. It is used in <code>all mods</code>.",
+        "primary_color" => "Primary Color",
+        "primary_color_desc" => "Primary color is the most dominant and most frequently used main color of the site.",
+        "secondary_color" => "Secondary Color",
+        "secondary_color_desc" => "Secondary color is the most dominant and most frequently used secondary color of the site.",
+        "tertiary_color" => "Tertiary Color",
+        "tertiary_color_desc" => "Tertiary color is the least used tertiary color on pages.",
     ],
     "result" => [
         "success" => "Success",
@@ -52,5 +60,8 @@ return [
         "type_logo_header_white" => "Please upload your header logo for light mode",
         "type_logo_footer_white" => "Please upload your footer logo for light mode",
         "type_favicon" => "Please upload your favicon",
+        "type_primary_color" => "Please choose your primary color",
+        "type_secondary_color" => "Please choose your secondary color",
+        "type_tertiary_color" => "Please choose your tertiary color",
     ]
 ];

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\System;
 use Illuminate\Http\Request;
+use Hash;
 
 class InstallController extends Controller
 {
@@ -19,6 +20,9 @@ class InstallController extends Controller
     }
     public function step_3(){
         return view('install.step-3');
+    }
+    public function step_4(){
+        return view('install.step-4');
     }
 
 
@@ -83,6 +87,31 @@ class InstallController extends Controller
         $system->site_logo_footer_white = $request->logo_footer_white_data;
         $system->site_logo_footer_dark = $footer_dark;
         $system->site_favicon = $request->favicon_data;
+
+        if($system->save()){
+            return response(["type" => "success", "message" => __('install.result.success'), "status" => true]);
+        }else{
+            return response(["type" => "error", "message" => __('install.result.error')]);
+        }
+    }
+
+    public function save_colors(Request $request){
+        if($request->primary_color == "#000000" || $request->primary_color == "#ffffff"){
+            return response(["type" => "warning", "message" => __('install.result.type_primary_color')]);
+        }
+        if($request->secondary_color == "#000000" || $request->secondary_color == "#ffffff"){
+            return response(["type" => "warning", "message" => __('install.result.type_secondary_color')]);
+        }
+        if($request->tertiary_color == "#000000" || $request->tertiary_color == "#ffffff"){
+            return response(["type" => "warning", "message" => __('install.result.type_tertiary_color')]);
+        }
+
+        $system = System::first();
+        $system->primary_color = $request->primary_color;
+        $system->secondary_color = $request->secondary_color;
+        $system->tertiary_color = $request->tertiary_color;
+        $system->site_lang = "EN";
+        $system->token = Hash::make($system->domain_name);
 
         if($system->save()){
             return response(["type" => "success", "message" => __('install.result.success'), "status" => true]);
