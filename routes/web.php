@@ -28,6 +28,7 @@ Route::controller(InstallController::class)->prefix('install')->group(function()
    Route::get('/step-4', 'step_4');
    Route::get('/step-5', 'step_5');
    Route::get('/completed', 'completed');
+   Route::get('/complete', 'complete');
 
    Route::post('/save-1', 'save');
    Route::post('/save-2', 'save_logos');

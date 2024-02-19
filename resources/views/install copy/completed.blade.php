@@ -8,10 +8,9 @@
     <div class="text-center col-md-4">
         <div class="card mt-4 maintenance-box">
             <div class="card-body">
-                <i class="far fa-play-circle" style="font-size:55px"></i>                                            
-                <h6 class="text-uppercase mt-3">{{ __('install.complted_title') }}<h6>
-                <p class="text-muted mt-3">{{ __('install.completed_details') }}</p>
-                <a href="/install/step-1" class="btn btn-primary">{{ __('install.start_btn') }} <i class="far fa-play-circle"></i></a>
+                <i class="fas fa-check-circle text-success" style="font-size:55px"></i>                                            
+                <h6 class="text-uppercase mt-3">{{ __('install.completed_title') }}<h6>
+                <a href="/install/complete" class="btn btn-primary">{{ __('install.use_btn') }} <i class="far fa-play-circle"></i></a>
             </div>
         </div>
     </div>

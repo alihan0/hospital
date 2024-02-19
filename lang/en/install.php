@@ -24,6 +24,7 @@ return [
     "completed_desc" => "Your website installation has been completed successfully. You can now start using your system. To use your system without any problems, please review the operating instructions. The help section within the system will give you frequent tips. Make sure to keep your system updated to avoid any problems. For version control, you can visit the System Settings page in your administration panel.",
     "step5_title" => "Admin User",
     "step5_detail" => "Please create a superuser to access the administration panel. Superuser has unlimited powers. You cannot delete or change the superuser later.",
+    "use_btn" => "Start Using The System",
 
     "form" => [
         "site_name" => "Company Name",

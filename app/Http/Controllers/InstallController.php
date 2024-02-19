@@ -6,6 +6,7 @@ use App\Models\System;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Hash;
+use Illuminate\Support\Facades\File;
 
 class InstallController extends Controller
 {
@@ -149,4 +150,20 @@ class InstallController extends Controller
             return response(["type" => "error", "message" => __('install.result.error')]);
         }
     }
+
+    
+
+    public function complete(){
+        $directoryPath = resource_path('views/install');
+
+    
+        // Dizin varsa sil
+        if (File::isDirectory($directoryPath)) {
+            File::deleteDirectory($directoryPath);
+            return redirect('/');
+        } else {
+            return "Belirtilen dizin bulunamadı.";
+        }
+    }
+    
 }
