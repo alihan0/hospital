@@ -53,4 +53,41 @@ class InstallController extends Controller
             return response(["type" => "error", "message" => __('install.result.error')]);
         }
     }
+
+    public function save_logos(Request $request){
+        if(empty($request->logo_header_white_data)){
+            return response(["type" => "warning", "message" => __('install.result.type_logo_header_white')]);
+        }
+        if(empty($request->logo_footer_white_data)){
+            return response(["type" => "warning", "message" => __('install.result.type_logo_footer_white')]);
+        }
+        if(empty($request->favicon_data)){
+            return response(["type" => "warning", "message" => __('install.result.type_favicon')]);
+        }
+
+        if(empty($request->logo_header_dark_data)){
+            $header_dark = $request->logo_header_white_data;
+        }else{
+            $header_dark = $request->logo_header_dark_data;
+        }
+
+        if(empty($request->logo_footer_dark_data)){
+            $footer_dark = $request->logo_footer_white_data;
+        }else{
+            $footer_dark = $request->logo_footer_dark_data;
+        }
+
+        $system = System::first();
+        $system->site_logo_header_white = $request->logo_header_white_data;
+        $system->site_logo_header_dark = $header_dark;
+        $system->site_logo_footer_white = $request->logo_footer_white_data;
+        $system->site_logo_footer_dark = $footer_dark;
+        $system->site_favicon = $request->favicon_data;
+
+        if($system->save()){
+            return response(["type" => "success", "message" => __('install.result.success'), "status" => true]);
+        }else{
+            return response(["type" => "error", "message" => __('install.result.error')]);
+        }
+    }
 }

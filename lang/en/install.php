@@ -13,6 +13,11 @@ return [
     "agree_btn" => "Acceptance and Continuation",
     "step2_title" => "Company Information",
     "step2_detail" => "Please enter the information requested during installation based on your company's information. If you need help, you can contact us at our call center at any time.",
+    "step3_title" => "Your's Logos",
+    "step3_detail" => "Please upload your company logos. Information about logos is located in the relevant area. Please follow the upload rules...",
+    "note1" => "Please upload in <code>PNG</code> format only.",
+    "note2" => "Please pay attention to the aspect ratio of the logos and make sure all logos are the same size.",
+    "note3" => "You do not have to upload a logo for dark mode. If you do not upload a logo for dark mode, your logos valid for white mode will be used.",
 
     "form" => [
         "site_name" => "Company Name",
@@ -25,6 +30,16 @@ return [
         "site_description_desc" => "This field is the description of your company. This field is optional. This field will appear in your search results.",
         "site_keywords" => "Site Keywords",
         "site_keywords_desc" => "This field is the keywords of your company. This field is optional. Search engines will index your site with these words.",
+        "logo_header_white" => "Header Logo (Light)",
+        "logo_footer_white" => "Footer Logo (Light)",
+        "logo_header_dark" => "Header Logo (Dark)",
+        "logo_footer_dark" => "Footer Logo (Dark)",
+        "logo_favicon" => "Favicon",
+        "logo_header_white_desc" => "This logo is used in the menu of the site in <code>light mode</code>.",
+        "logo_footer_white_desc" => "This logo is used in the footer of the site in <code>light mode</code>.",
+        "logo_header_dark_desc" => "This logo is used in the menu of the site in <code>dark mode</code>.",
+        "logo_footer_dark_desc" => "This logo is used in the footer of the site in <code>dark mode</code>.",
+        "logo_favicon_desc" => "This logo is the browser's tab icon. It is used in <code>all mods</code>.",
     ],
     "result" => [
         "success" => "Success",
@@ -32,6 +47,10 @@ return [
         "type_site_name" => "Please enter your company name.",
         "type_domain_name" => "Please enter your domain name.",
         "type_site_url" => "Please enter your Site URL.",
-        "type_valid_url" => "Please enter a valid Site URL."
+        "type_valid_url" => "Please enter a valid Site URL.",
+        "upload_success" => "Logo uploaded successfully.",
+        "type_logo_header_white" => "Please upload your header logo for light mode",
+        "type_logo_footer_white" => "Please upload your footer logo for light mode",
+        "type_favicon" => "Please upload your favicon",
     ]
 ];

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InstallController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +27,9 @@ Route::controller(InstallController::class)->prefix('install')->group(function()
    Route::get('/step-3', 'step_3');
 
    Route::post('/save-1', 'save');
+   Route::post('/save-2', 'save_logos');
+});
+
+Route::controller(UploadController::class)->prefix('upload')->group(function(){
+    Route::post('/logo', 'logo');
 });
