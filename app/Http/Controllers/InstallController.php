@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\System;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Hash;
 
@@ -24,6 +25,13 @@ class InstallController extends Controller
     public function step_4(){
         return view('install.step-4');
     }
+    public function step_5(){
+        return view('install.step-5');
+    }
+    public function completed(){
+        return view('install.completed');
+    }
+    
 
 
 
@@ -114,6 +122,28 @@ class InstallController extends Controller
         $system->token = Hash::make($system->domain_name);
 
         if($system->save()){
+            return response(["type" => "success", "message" => __('install.result.success'), "status" => true]);
+        }else{
+            return response(["type" => "error", "message" => __('install.result.error')]);
+        }
+    }
+
+    public function save_user(Request $request){
+        if(empty($request->name) || empty($request->email) || empty($request->password)){
+            return response(["type" => "warning", "message" => __('install.result.type_user')]);
+        }
+
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
+        $user->branch_id = 0;
+        $user->role = "SUPERADMIN";
+        $user->access_level = 9;
+        $user->status = 1;
+
+        if($user->save()){
             return response(["type" => "success", "message" => __('install.result.success'), "status" => true]);
         }else{
             return response(["type" => "error", "message" => __('install.result.error')]);

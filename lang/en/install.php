@@ -20,6 +20,10 @@ return [
     "note3" => "You do not have to upload a logo for dark mode. If you do not upload a logo for dark mode, your logos valid for white mode will be used.",
     "step4_title" => "Your's Colors",
     "step4_detail" => "Please enter your company's color palette. The colors you specify here constitute the basic colors of the pages that our site visitors will view. When choosing colors, please do not choose black and white colors, black and white areas are used unchanged in all our themes. Specify only the primary colors here. In order for your color palette to be valid, you must have activated the Front Site in the site settings. If you do not activate the Front Site, you will be directed directly to the administration panel.",
+    "completed_title" => "Installation Completed Successfully",
+    "completed_desc" => "Your website installation has been completed successfully. You can now start using your system. To use your system without any problems, please review the operating instructions. The help section within the system will give you frequent tips. Make sure to keep your system updated to avoid any problems. For version control, you can visit the System Settings page in your administration panel.",
+    "step5_title" => "Admin User",
+    "step5_detail" => "Please create a superuser to access the administration panel. Superuser has unlimited powers. You cannot delete or change the superuser later.",
 
     "form" => [
         "site_name" => "Company Name",
@@ -48,6 +52,9 @@ return [
         "secondary_color_desc" => "Secondary color is the most dominant and most frequently used secondary color of the site.",
         "tertiary_color" => "Tertiary Color",
         "tertiary_color_desc" => "Tertiary color is the least used tertiary color on pages.",
+        "name" => "Full name",
+        "email" => "Email address",
+        "password" => "Password",
     ],
     "result" => [
         "success" => "Success",
@@ -63,5 +70,6 @@ return [
         "type_primary_color" => "Please choose your primary color",
         "type_secondary_color" => "Please choose your secondary color",
         "type_tertiary_color" => "Please choose your tertiary color",
+        "type_user" => "Please fill all fields",
     ]
 ];

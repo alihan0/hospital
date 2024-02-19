@@ -26,10 +26,13 @@ Route::controller(InstallController::class)->prefix('install')->group(function()
    Route::get('/step-2', 'step_2');
    Route::get('/step-3', 'step_3');
    Route::get('/step-4', 'step_4');
+   Route::get('/step-5', 'step_5');
+   Route::get('/completed', 'completed');
 
    Route::post('/save-1', 'save');
    Route::post('/save-2', 'save_logos');
    Route::post('/save-3', 'save_colors');
+   Route::post('/save-4', 'save_user');
 });
 
 Route::controller(UploadController::class)->prefix('upload')->group(function(){
