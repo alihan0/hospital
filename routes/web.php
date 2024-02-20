@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\InstallController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('admin')->group(function(){
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/', 'index');
+    });
+
 });
 
 
@@ -39,3 +47,10 @@ Route::controller(InstallController::class)->prefix('install')->group(function()
 Route::controller(UploadController::class)->prefix('upload')->group(function(){
     Route::post('/logo', 'logo');
 });
+
+
+Route::get('/change-locale/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+})->name('change-locale');
