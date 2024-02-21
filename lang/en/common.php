@@ -17,6 +17,21 @@ return [
         "notifications" => "Notifications",
         "message" => "Message",
         "messages" => "Messages",
+        "welcome" => "Welcome",
+        "welcome_text" => "You must sign in to continue.",
+        "all_rights_reserved" => "All rights reserved.",
+    ],
+    "form" => [
+        "name" => "Name",
+        "email" => "Email",
+        "password" => "Password",
+        "password_confirmation" => "Password Confirmation",
+        "old_password" => "Old Password",
+        "new_password" => "New Password",
+        "new_password_confirmation" => "New Password Confirmation",
+        "enter_email" => "Enter Email",
+        "enter_password" => "Enter Password",
+
     ],
     "button" => [
         "save" => "Save",
@@ -44,6 +59,10 @@ return [
         "unset" => "Unset",
         "create" => "Create",
         "item" => "Item",
+        "login" => "Login",
+        "logout" => "Logout",
+        "reset_password" => "Reset Password",
+
     ],
     "status" => [
         "success" => "Success",

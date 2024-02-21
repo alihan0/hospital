@@ -23,5 +23,3 @@ function fastPost(url, data, redirectUrl = null) {
         });
 }
 
-// Dışa aktar
-export default fastPost;

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\System;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -22,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $system = System::first();
+        view()->share('system', $system);
     }
 }

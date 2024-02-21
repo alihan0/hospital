@@ -192,7 +192,7 @@
                     <a class="dropdown-item d-flex align-items-center" href="#"><i class="mdi mdi-cog font-size-17 align-middle me-1"></i> {{ __('common.title.preferences') }}</a>
                     <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline font-size-17 align-middle me-1"></i> {{ __('common.title.lock_screen') }}</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#"><i class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i> {{ __('common.title.logout') }}</a>
+                    <a class="dropdown-item text-danger" href="{{ route('logout') }}"><i class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i> {{ __('common.title.logout') }}</a>
                 </div>
             </div>
 
