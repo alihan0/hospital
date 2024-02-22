@@ -30,6 +30,8 @@ return [
         "floor" => "Floor",
         "capacity" => "Capacity",
         "new" => "New",
+        "bed" => "Bed",
+        "beds" => "Beds",
     ],
     "form" => [
         "name" => "Name",
@@ -67,7 +69,8 @@ return [
         "parquet" => "Parquet",
         "tile" => "Tile",
         "carpet_flooring" => "Carpet Flooring",
-        "pvc" => "PVC"
+        "pvc" => "PVC",
+        
     ],
     "button" => [
         "save" => "Save",

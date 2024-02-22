@@ -4,6 +4,17 @@
     {{ __('common.title.rooms') }} - {{ env('APP_NAME') }}
 @endsection
 
+@section('style')
+    <style>
+        .pricing-box{
+            cursor:pointer;
+        }
+        .pricing-box:hover{
+            background-color: #f8f9fa;
+        }
+    </style>
+@endsection
+
 @section('content')
 <!-- start page title -->
 <div class="page-title-box">
@@ -26,40 +37,44 @@
 </div>
 <!-- end page title -->
 
+@php
+    $roomsByFloor = $rooms->groupBy('floor');
+@endphp
 
-<div class="row">
+@foreach ($roomsByFloor as $floor => $roomsOnFloor)
+
+<div class="row bg-light p-4 mb-4 pt-4">
+    <h3 class="fw-bold border-bottom pb-3 mb-4">{{ __('common.title.floor') }}: {{ $floor }}</h3>
+    @foreach ($roomsOnFloor as $room)
     <div class="col-xl-3 col-md-6">
-        <div class="card pricing-box">
+        <div class="card pricing-box" onclick="window.location.assign('/admin/rooms/detail/{{ $room->id }}')">
             <div class="card-body p-4">
                 <div class="d-flex mt-2">
                     <div class="flex-shrink-0 align-self-center">
                         <i class="fas fa-bed fs-1"></i>
                     </div>                                            
                     <div class="flex-grow-1 ms-auto text-end">
-                        <h4>{{ __('common.title.room') }}: 1</h4>
-                        <p class="text-muted mb-0">{{ __('common.title.floor') }}: 1 <br>{{ __('common.title.capacity') }}: 1</p>
+                        <h4>{{ __('common.title.room') }}: {{ $room->room_no }}</h4>
+                        <p class="text-muted mb-0">{{ __('common.title.beds') }}: {{ $room->floor }}</p>
                     </div>
-                  </div>
-                <div class="pricing-features mt-5 pt-2 d-flex justify-content-between">
-                   <div class="border border-2 border-warning p-4 text-center w-50 m-2">
-                    <i class="fas fa-male fs-2 text-warning"></i>
-                   </div>
-                   <div class="border p-4 text-center w-50 m-2">
-                    <i class="fas fa-male"></i>
-                   </div>
-                   <div class="border p-4 text-center w-50 m-2">
-                    <i class="fas fa-male"></i>
-                   </div>
                 </div>
-                
-                <div class="d-grid mt-5">
-                    <a href="#" class="btn btn-primary waves-effect waves-light">Sign up Now</a>
+                <div class="pricing-features mt-5 pt-2 d-flex justify-content-between">
+                    <div class="border border-2 border-warning p-4 text-center w-50 m-2">
+                        <i class="fas fa-male fs-2 text-warning"></i>
+                    </div>
+                    <div class="border p-4 text-center w-50 m-2">
+                        <i class="fas fa-male"></i>
+                    </div>
+                    <div class="border p-4 text-center w-50 m-2">
+                        <i class="fas fa-male"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- end col -->
+    @endforeach
 </div>
+@endforeach
+
 
 @endsection
