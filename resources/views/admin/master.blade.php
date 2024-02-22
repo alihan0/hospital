@@ -20,6 +20,8 @@
         <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css">
         <!-- App Css-->
         <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     
     </head>
 
@@ -70,6 +72,10 @@
                 <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
                 <script src="/assets/libs/simplebar/simplebar.min.js"></script>
                 <script src="/assets/libs/node-waves/waves.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js" integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+                <script src="/assets/libs/fastpost/fastpost.js"></script>
 
 
         <!-- Peity chart-->
@@ -82,7 +88,7 @@
         <script src="/assets/js/pages/dashboard.init.js"></script>
 
         <script src="/assets/js/app.js"></script>
-
+        @yield('script')
     </body>
 
 </html>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InstallController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,13 @@ Route::get('/', function () {
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function(){
     Route::controller(AdminController::class)->group(function(){
         Route::get('/', 'index');
+    });
+
+    Route::controller(RoomController::class)->group(function(){
+        Route::get('/rooms', 'index');
+        Route::get('/rooms/new', 'new');
+
+        Route::post('/rooms/create', 'create');
     });
 
 });
