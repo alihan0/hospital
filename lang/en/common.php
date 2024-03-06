@@ -41,11 +41,13 @@ return [
         "empty_the_bed" => "Empty The Bed",
         "empty_the_bed_text" => "State the reason for emptying this bed:",
         "new_bed" => "Create New Bed",
-        "bed_assigment" => "Bed Assigment"
+        "bed_assigment" => "Bed Assigment",
+        "bed_history" => "Bed History",
     ],
     "text" => [
         "new_bed" => "You can create a new bed by selecting the bed type. You can later make adjustments and assignments for the bed you create.",
-        "bed_assigment" => "When you assign a bed, the bed will appear in use and a resident will be added. You can only use the beds for 1 resident at a time. Please select the resident you will assign. The resident you choose must not be in a bed. If the resident you want to assign is already in a bed, get them out of bed first."
+        "bed_assigment" => "When you assign a bed, the bed will appear in use and a resident will be added. You can only use the beds for 1 resident at a time. Please select the resident you will assign. The resident you choose must not be in a bed. If the resident you want to assign is already in a bed, get them out of bed first.",
+        "bed_history" => "You can view the list of residents who have previously stayed in this bed here.",
     ],
     "form" => [
         "name" => "Name",
@@ -91,7 +93,9 @@ return [
         "the_residentbecame_ex" => "The resident became EX.",
         "resident_left_the_institution" => "Resident left the institution",
         "the_resident_was_transferred_to_another_bed" => "The resident was transferred to another bed.",
-        "resident" => "Resident"
+        "resident" => "Resident",
+        "gender" => "Gender",
+        "birthdate" => "Birthdate",
     ],
     "button" => [
         "save" => "Save",
@@ -131,6 +135,7 @@ return [
         "new_bed" => "New Bed",
         "resident_assigment" => "Resident Assigment",
         "assigment" => "Assigment",
+        "bed_history" => "Bed History",
     ],
     "status" => [
         "success" => "Success",

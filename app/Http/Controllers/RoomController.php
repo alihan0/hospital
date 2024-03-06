@@ -55,12 +55,15 @@ class RoomController extends Controller
         if(empty($request->empty_reason)){
             return response(["type" => "warning", "message" => __('validate.room.choose_empty_reason')]);
         }
-        $bed = BedResident::where('bed_id',$request->bed)->where('status',1)->first();
+        $bed_resident = BedResident::where('bed_id',$request->bed)->where('status',1)->first();
 
-        if($bed){
-            $bed->status = 0;
-            $bed->empty_reason = $request->empty_reason;
-            if($bed->save()){
+        if($bed_resident){
+            $bed_resident->status = 0;
+            $bed_resident->empty_reason = $request->empty_reason;
+            if($bed_resident->save()){
+                $bed = Bed::find($request->bed);
+                $bed->status = 1;
+                $bed->save();
                 return response(["type" => "success", "message" => __('validate.room.success'), "status" => true]);
             }else{
                 return response(["type" => "error", "message" => __('validate.error')]);
@@ -108,6 +111,9 @@ class RoomController extends Controller
         $new->status = 1;
 
         if($new->save()){
+            $bed = Bed::find($request->bed);
+            $bed->status = 2;
+            $bed->save();
             return response(["type" => "success", "message" => __('validate.room.success'), "status" => true]);
         }else{
             return response(["type" => "error", "message" => __('validate.error')]);

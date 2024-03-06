@@ -11,7 +11,15 @@ class Bed extends Model
 
     public function Resident()
     {
+        return $this->hasOne(BedResident::class, 'bed_id', 'id')->where('status', 1)->latest();
+    }
+
+    public function oldResident()
+    {
         return $this->hasOne(BedResident::class, 'bed_id', 'id');
+    }
+    public function Residents(){
+        return $this->hasMany(BedResident::class, 'bed_id', 'id');
     }
 
 

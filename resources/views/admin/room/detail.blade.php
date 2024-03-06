@@ -108,6 +108,7 @@
                     
                     <div class="card-body">
                         <small class="d-flex justify-content-end align-self-center text-end">{{ __('common.title.bed') }}#{{ $bed->id }}</small>
+                      
                         @if ($bed->Resident && $bed->Resident->status == 1)
                       
                         @if ($bed->Resident->Resident->gender == 'MALE')
@@ -238,7 +239,60 @@
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                           <button type="button" class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#bedAssigment">{{ __('common.button.resident_assigment') }}</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#bedHistory">{{ __('common.button.bed_history') }}</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" tabindex="-1" id="bedHistory">">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">{{ __('common.title.bed_history') }}</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>{{ __('common.text.bed_history') }}</p>
+                          
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">{{ __('common.form.name') }}</th>
+                                <th scope="col">{{ __('common.form.gender') }}</th>
+                                <th scope="col">{{ __('common.form.birthdate') }}</th>
+                                <th scope="col">{{ __('common.form.empty_reason') }}</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              @foreach ($bed->Residents->reverse() as $item)
+                                  <tr>
+                                    <td>{{ $item->Resident->id }}</td>
+                                    <td>{{ $item->Resident->first_name.' '.$item->Resident->last_name }}</td>
+                                    <td>{{ $item->Resident->gender }}</td>
+                                    <td>
+                                        {{ \Carbon\Carbon::parse($item->Resident->birthdate)->translatedFormat('j F Y') }}
+                                        ({{ \Carbon\Carbon::parse($item->Resident->birthdate)->age }})
+                                    </td>
+                                    <td>
+                                        @if ($item->empty_reason == 1)
+                                            {{ __('common.form.the_residentbecame_ex') }}
+                                        @elseif($item->empty_reason == 2)
+                                            {{ __('common.form.resident_left_the_institution') }}
+                                        @elseif($item->empty_reason == 3)
+                                            {{ __('common.form.the_resident_was_transferred_to_another_bed') }}
+                                        @endif
+                                    <td>
+                                  </tr>
+                              @endforeach
+                            </tbody>
+                          </table>
+
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('common.button.cancel') }}</button>
                         </div>
                       </div>
                     </div>
