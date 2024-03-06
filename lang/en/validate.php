@@ -16,5 +16,8 @@ return [
         "success" => "You have successfully created room",
         "choose_empty_reason" => "Please select the reason for emptying the bed.",
         "choose_bed_type" => "Choose bed type",
+        "choose_resident" => "Please choose a resident",
+        "already_in_bed" => "This resident is already in a bed!",
+        "bed_is_full" => "This bed is already full"
     ],
 ];

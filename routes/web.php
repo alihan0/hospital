@@ -35,6 +35,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function(){
         Route::post('/rooms/create', 'create');
         Route::post('/rooms/empty', 'empty');
         Route::post('/rooms/new-bed', 'new_bed');
+        Route::post('/rooms/bed-assigment', 'bed_assigment');
     });
 
 });

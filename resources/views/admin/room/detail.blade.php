@@ -237,7 +237,36 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#bedAssigment">{{ __('common.button.resident_assigment') }}</button>
                           <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" tabindex="-1" id="bedAssigment">">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">{{ __('common.title.bed_assigment') }}</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>{{ __('common.text.bed_assigment') }}</p>
+                          <div class="mb-3">
+                            <label for="resident" class="form-label">{{ __('common.form.resident') }}:</label>
+                            <select id="resident" class="form-control">
+                                <option value="0">{{ __('common.form.select') }}</option>
+                                @foreach ($residents as $resident)
+                                    <option value="{{ $resident->id }}">{{ $resident->first_name .' '. $resident->last_name}}</option>
+                                @endforeach
+                            </select>
+                          </div>
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('common.button.cancel') }}</button>
+                          <button type="button" class="btn btn-primary" onclick="assigmentToBed({{ $room->id }}, {{ $bed->id }})">{{ __('common.button.assigment') }}</button>
                         </div>
                       </div>
                     </div>
@@ -301,6 +330,12 @@
     function emptyBed(bed){
         var empty_reason = $("#empty_reason").val()
         fastPost('/admin/rooms/empty', {bed:bed, empty_reason:empty_reason});
+    }
+
+    function assigmentToBed(room, bed){
+        var resident = $("#resident").val()
+
+        fastPost('/admin/rooms/bed-assigment', {room:room, bed:bed, resident:resident});
     }
 </script>
 @endsection

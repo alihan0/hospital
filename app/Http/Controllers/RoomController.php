@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bed;
 use App\Models\BedResident;
+use App\Models\Resident;
 use Illuminate\Http\Request;
 
 use App\Models\Room;
@@ -47,7 +48,7 @@ class RoomController extends Controller
     }
 
     public function detail($id){
-        return view('admin.room.detail', ['room' => Room::find($id)]);
+        return view('admin.room.detail', ['room' => Room::find($id), 'residents' => Resident::all()]);
     }
 
     public function empty(Request $request){
@@ -76,8 +77,37 @@ class RoomController extends Controller
         $bed->room_id = $request->room;
         $bed->type = $request->type;
         $bed->status = 1;
-        
+
         if($bed->save()){
+            return response(["type" => "success", "message" => __('validate.room.success'), "status" => true]);
+        }else{
+            return response(["type" => "error", "message" => __('validate.error')]);
+        }
+    }
+
+    public function bed_assigment(Request $request){
+        if(empty($request->resident)){
+            return response(["type" => "warning", "message" => __('validate.room.choose_resident')]);
+        }
+
+
+        $bed_residents = BedResident::where('resident_id', $request->resident)->where('status', 1)->first();
+        if($bed_residents){
+            return response(["type" => "warning", "message" => __('validate.room.already_in_bed')]);
+        }
+
+        $bed_residents = BedResident::where('bed_id',$request->bed)->where('status',1)->first();
+        if($bed_residents){
+            return response(["type" => "warning", "message" => __('validate.room.bed_is_full')]);
+        }
+
+        $new = new BedResident;
+        $new->room_id = $request->room;
+        $new->bed_id = $request->bed;
+        $new->resident_id = $request->resident;
+        $new->status = 1;
+
+        if($new->save()){
             return response(["type" => "success", "message" => __('validate.room.success'), "status" => true]);
         }else{
             return response(["type" => "error", "message" => __('validate.error')]);
