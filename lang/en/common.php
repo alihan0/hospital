@@ -39,7 +39,11 @@ return [
         "bunk_bed" => "Bunk Bed",
         "stretcher" => "Stretcher",
         "empty_the_bed" => "Empty The Bed",
-        "empty_the_bed_text" => "State the reason for emptying this bed:"
+        "empty_the_bed_text" => "State the reason for emptying this bed:",
+        "new_bed" => "Create New Bed"
+    ],
+    "text" => [
+        "new_bed" => "You can create a new bed by selecting the bed type. You can later make adjustments and assignments for the bed you create."
     ],
     "form" => [
         "name" => "Name",
@@ -121,6 +125,7 @@ return [
         "yes" => "Yes",
         "no" => "No",
         "yes_or_no" => "Yes or No",
+        "new_bed" => "New Bed",
     ],
     "status" => [
         "success" => "Success",

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bed;
 use App\Models\BedResident;
 use Illuminate\Http\Request;
 
@@ -63,6 +64,23 @@ class RoomController extends Controller
             }else{
                 return response(["type" => "error", "message" => __('validate.error')]);
             }
+        }
+    }
+
+    public function new_bed(Request $request){
+        if(empty($request->type)){
+            return response(["type" => "warning", "message" => __('validate.room.choose_bed_type')]);
+        }
+
+        $bed = new Bed;
+        $bed->room_id = $request->room;
+        $bed->type = $request->type;
+        $bed->status = 1;
+        
+        if($bed->save()){
+            return response(["type" => "success", "message" => __('validate.room.success'), "status" => true]);
+        }else{
+            return response(["type" => "error", "message" => __('validate.error')]);
         }
     }
 }

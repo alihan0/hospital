@@ -34,11 +34,41 @@
         
         <div class="col-4 d-flex justify-content-end">
             <div class="float-end align-self-center">        
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newBedModal"><i class="fas fa-plus"></i> {{ __('common.button.new_bed') }}</button>
                 <button onclick="window.location.assign('/admin/rooms')" class="btn btn-primary"><i class="fas fa-list"></i> {{ __('common.button.list') }}</button>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="newBedModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ __('common.title.new_bed') }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>{{ __('common.text.new_bed') }}.</p>
+
+          <div class="mb-3">
+            <label for="bed_type" class="form-label">{{ __('common.form.bed_type') }}:</label>
+            <select id="bed_type" class="form-control">
+                <option value="0">{{ __('common.form.select') }}</option>
+                <option value="1">{{ __('common.title.plinth') }}</option>
+                <option value="2">{{ __('common.title.bunk_bed') }}</option>
+                <option value="3">{{ __('common.title.stretcher') }}</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('common.button.cancel') }}</button>
+          <button type="button" class="btn btn-primary" onclick="newBed({{ $room->id }})">{{ __('common.button.save') }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <!-- end page title -->
 
 
@@ -255,6 +285,13 @@
 @section('script')
     
 <script>
+
+    function newBed(room){
+        var type = $("#bed_type").val();
+
+        fastPost('/admin/rooms/new-bed', {room:room, type:type});
+    }
+
     function createRoom(){
         var form = $("#room").serialize()
 
