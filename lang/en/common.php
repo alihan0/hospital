@@ -32,6 +32,14 @@ return [
         "new" => "New",
         "bed" => "Bed",
         "beds" => "Beds",
+        "room_details" => "Room Details",
+        "empty_bed" => "Empty Bed",
+        "bed_detail" => "Bed Detail",
+        "plinth" => "Plinth",
+        "bunk_bed" => "Bunk Bed",
+        "stretcher" => "Stretcher",
+        "empty_the_bed" => "Empty The Bed",
+        "empty_the_bed_text" => "State the reason for emptying this bed:"
     ],
     "form" => [
         "name" => "Name",
@@ -70,7 +78,13 @@ return [
         "tile" => "Tile",
         "carpet_flooring" => "Carpet Flooring",
         "pvc" => "PVC",
-        
+        "bed_no" => "Bed No",
+        "bed_type" => "Bed Type",
+        "bed_status" => "Bed Status",
+        "empty_reason" => "Empty Reason",
+        "the_residentbecame_ex" => "The resident became EX.",
+        "resident_left_the_institution" => "Resident left the institution",
+        "the_resident_was_transferred_to_another_bed" => "The resident was transferred to another bed.",
     ],
     "button" => [
         "save" => "Save",
@@ -102,7 +116,11 @@ return [
         "logout" => "Logout",
         "reset_password" => "Reset Password",
         "new" => "New",
-        "list" => "List"
+        "list" => "List",
+        "apply" => "Apply",
+        "yes" => "Yes",
+        "no" => "No",
+        "yes_or_no" => "Yes or No",
     ],
     "status" => [
         "success" => "Success",
@@ -129,6 +147,10 @@ return [
         "unseen" => "Unseen",
         "seen" => "Seen",
         "unread" => "Unread",
+        "available" => "Available",
+        "unavailable" => "Unavailable",
+        "filled" => "Filled",
+        "unavailable_bed_text" => "This bed is currently unavailable."
     ]
 
 ];

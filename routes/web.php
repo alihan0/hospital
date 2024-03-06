@@ -30,8 +30,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function(){
     Route::controller(RoomController::class)->group(function(){
         Route::get('/rooms', 'index');
         Route::get('/rooms/new', 'new');
+        Route::get('/rooms/detail/{id}', 'detail');
 
         Route::post('/rooms/create', 'create');
+        Route::post('/rooms/empty', 'empty');
     });
 
 });

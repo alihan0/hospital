@@ -46,6 +46,7 @@
 <div class="row bg-light p-4 mb-4 pt-4">
     <h3 class="fw-bold border-bottom pb-3 mb-4">{{ __('common.title.floor') }}: {{ $floor }}</h3>
     @foreach ($roomsOnFloor as $room)
+    
     <div class="col-xl-3 col-md-6">
         <div class="card pricing-box" onclick="window.location.assign('/admin/rooms/detail/{{ $room->id }}')">
             <div class="card-body p-4">
@@ -55,7 +56,7 @@
                     </div>                                            
                     <div class="flex-grow-1 ms-auto text-end">
                         <h4>{{ __('common.title.room') }}: {{ $room->room_no }}</h4>
-                        <p class="text-muted mb-0">{{ __('common.title.beds') }}: {{ $room->floor }}</p>
+                        <p class="text-muted mb-0">{{ __('common.title.beds') }}: {{ $room->Beds->count() }}</p>
                     </div>
                 </div>
                 <div class="pricing-features mt-5 pt-2 d-flex justify-content-between">

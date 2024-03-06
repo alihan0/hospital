@@ -14,5 +14,6 @@ return [
         "enter_floor" => "Please, enter floor",
         "enter_room_no" => "Please, enter room no",
         "success" => "You have successfully created room",
+        "choose_empty_reason" => "Please select the reason for emptying the bed."
     ],
 ];
